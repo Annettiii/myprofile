@@ -1,320 +1,365 @@
 <!doctype html>
-<html lang="vi">
-
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>sirocandy1337 profile</title>
-  <meta name="description" content="Personal portfolio / about me page" />
-  <meta name="author" content="sirocandy1337" />
-  <meta name="keywords" content="portfolio, linux, coder, anime, tech enthusiast" />
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" type="image/png" />
-
-  <!-- Tailwind CDN -->
+  <title>sirocandyy1337</title>
+  <meta name="description" content="Profile of sirocandyy1337" />
+  
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class'
     }
   </script>
+
   <style>
-    :root {
-      --accent: #8b5cf6
+    body {
+      background: url("https://i.pinimg.com/originals/a2/b8/8b/a2b88b46cf15cf0ae21d6ee0f3a16ef4.gif") no-repeat center center fixed;
+      background-size: cover;
     }
 
-    .fancy-grad {
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(59, 130, 246, 0.08));
+    /* Navigation styles */
+    .nav-blur {
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Thêm hiệu ứng hover */
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-5px) scale(1.02) rotate(-1deg);
-      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
-    }
-
-    .btn-anim {
+    .nav-item {
       transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-item:hover {
+      color: #c4b5fd;
+      text-shadow: 0 0 10px #8b5cf6;
+    }
+    
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-item:hover::after {
+      transform: scaleX(1);
     }
 
-    .btn-anim:hover {
-      transform: scale(1.05);
-      background-color: #7c3aed !important;
-      color: white !important;
+    .glass {
+      background: rgba(17, 17, 17, 0.55);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .glow-border {
+      border: 1px solid rgba(124, 58, 237, 0.7);
+      box-shadow: 0 0 12px rgba(124, 58, 237, 0.8);
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Enhanced tilt effect */
+    .tilt-card {
+      transition: transform 0.15s ease;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    
+    .tilt-card:hover {
+      transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(1.02);
+      box-shadow: 
+        0 0 20px rgba(124, 58, 237, 0.9),
+        0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Skill progress bar */
+    .progress-bar {
+      height: 10px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, rgba(139,92,246,1) 0%, rgba(167,139,250,1) 100%);
+      box-shadow: 0 0 12px rgba(139,92,246,0.8);
+      transition: width 2s ease;
+    }
+
+    /* Neon glow text */
+    .neon-text {
+      color: #c4b5fd;
+      text-shadow: 
+        0 0 5px #a78bfa,
+        0 0 10px #8b5cf6,
+        0 0 20px #7c3aed,
+        0 0 40px #6d28d9;
+    }
+
+    /* Subtle glow on tilt */
+    .tilt-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.1));
+      border-radius: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    
+    .tilt-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Intro animation overlay */
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOut 2s ease 2.5s forwards;
+    }
+    #intro h1 {
+      font-size: 2rem;
+      color: #c4b5fd;
+      text-shadow: 0 0 20px #8b5cf6, 0 0 40px #7c3aed;
+      animation: glow 2s infinite alternate, scaleUp 2s ease;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #8b5cf6; }
+      to { text-shadow: 0 0 30px #7c3aed; }
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+    @keyframes scaleUp {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 
-<body class="min-h-screen bg-slate-50 text-slate-800 antialiased dark:bg-slate-900 dark:text-slate-200">
-  <main class="max-w-4xl mx-auto p-6">
-    <!-- Header / Hero -->
-    <header class="flex items-center justify-between py-6">
-      <div class="flex items-center gap-4">
-        <img src="https://i.pinimg.com/736x/1e/aa/15/1eaa159a2db61cc3f6dbbe0fb114cad6.jpg" alt="Avatar"
-          class="w-14 h-14 rounded-xl shadow object-cover">
+<body class="min-h-screen text-slate-100">
+  <!-- Intro Overlay -->
+  <div id="intro"><h1>Welcome to my world 🚀</h1></div>
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="font-bold text-xl neon-text">sirocandyy1337</div>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="nav-item text-slate-300 hover:text-violet-300 font-medium">About</a>
+        <a href="#skills" class="nav-item text-slate-300 hover:text-violet-300 font-medium">Skills</a>
+        <a href="#projects" class="nav-item text-slate-300 hover:text-violet-300 font-medium">Projects</a>
+        <a href="#contact" class="nav-item text-slate-300 hover:text-violet-300 font-medium">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button class="text-slate-300 hover:text-violet-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex items-center justify-center min-h-screen p-6 pt-24">
+    <main class="max-w-3xl w-full space-y-6 fade-in">
+
+      <!-- Profile card -->
+      <section class="glass glow-border rounded-2xl p-6 flex items-center gap-6 tilt-card relative">
+        <img src="https://i.pinimg.com/736x/1e/aa/15/1eaa159a2db61cc3f6dbbe0fb114cad6.jpg"
+             alt="Avatar"
+             class="w-24 h-24 rounded-xl shadow-lg border border-violet-500">
+
         <div>
-          <h1 class="text-xl font-semibold">matchalatte.</h1>
-          <p class="text-sm text-slate-500 dark:text-slate-400">Coder • Linux user • Tech enthusiast</p>
+          <h1 class="text-2xl font-bold neon-text">sirocandyy1337</h1>
+          <p class="text-slate-300">💻 Coder • 🐧 Linux User • ⚙️ Tech Enthusiast • 🌸 Anime fan</p>
         </div>
-      </div>
+      </section>
 
-      <div class="flex items-center gap-4">
-        <nav class="hidden md:flex gap-4 text-sm">
-          <a href="#about" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
-          <a href="#skills" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
-          <a href="#projects" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
-          <a href="#contact"
-            class="px-3 py-2 rounded border border-slate-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-800">Contact</a>
-        </nav>
-
-        <!-- Hamburger menu -->
-        <button id="menuToggle" class="md:hidden flex flex-col gap-1">
-          <span class="w-6 h-0.5 bg-slate-600 dark:bg-slate-300"></span>
-          <span class="w-6 h-0.5 bg-slate-600 dark:bg-slate-300"></span>
-          <span class="w-6 h-0.5 bg-slate-600 dark:bg-slate-300"></span>
-        </button>
-
-        <!-- Toggle dark mode -->
-        <button id="darkToggle"
-          class="w-12 h-6 flex items-center bg-slate-300 dark:bg-slate-600 rounded-full p-1 transition-colors duration-300">
-          <div id="darkThumb"
-            class="w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300">
-          </div>
-        </button>
-      </div>
-    </header>
-
-    <!-- Mobile nav -->
-    <nav id="mobileMenu" class="hidden flex-col gap-2 text-sm p-4 bg-white dark:bg-slate-800 rounded-lg shadow-md md:hidden">
-      <a href="#about" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-700">About</a>
-      <a href="#skills" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-700">Skills</a>
-      <a href="#projects" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-700">Projects</a>
-      <a href="#contact" class="px-3 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-700">Contact</a>
-    </nav>
-
-    <!-- Hero card -->
-    <section id="about"
-      class="mt-6 bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm grid md:grid-cols-2 gap-6 items-center card-hover">
-      <div>
-        <h2 class="text-2xl font-bold">Hello — I'm <span class="text-violet-600">matchalatte.</span></h2>
-        <p class="mt-2 text-slate-600 dark:text-slate-400">A passionate developer who loves building small tools,
-          tinkering with Linux and sipping matcha lattes while debugging. I make things that are simple, fast and fun.
+      <!-- About me -->
+      <section id="about" class="glass glow-border rounded-2xl p-6 space-y-4 tilt-card relative">
+        <h2 class="text-xl font-semibold neon-text">About me</h2>
+        <p class="text-slate-200 text-sm">
+          I'm <span class="text-violet-400 font-medium">sirocandyy1337</span> — "💻 I'm a beginner programmer currently learning 
+          and exploring different technologies. I have a special interest in Linux, automation tools, and building small projects 
+          that make life easier. My goal is to grow step by step into a skilled developer while sharing knowledge and connecting 
+          with others along the way."
         </p>
-
-        <div class="mt-4 flex flex-wrap gap-3">
-          <a href="#projects"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg shadow-sm bg-violet-600 text-white btn-anim">View
-            Projects</a>
-          <a href="#contact"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 btn-anim">Get
-            in touch</a>
+        
+        <!-- Experience & Availability boxes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+          <div class="glass rounded-xl p-4 border border-slate-600">
+            <div class="text-xs text-slate-400 uppercase tracking-wide">Experience</div>
+            <div class="text-lg font-semibold text-white mt-1">2+ month</div>
+          </div>
+          <div class="glass rounded-xl p-4 border border-slate-600">
+            <div class="text-xs text-slate-400 uppercase tracking-wide">Availability</div>
+            <div class="text-lg font-semibold text-white mt-1">Freelance / Collab</div>
+          </div>
         </div>
+      </section>
 
-        <ul class="mt-4 text-sm text-slate-500 dark:text-slate-400 space-y-1">
-          <li>👨 Real name: Hoàng Tuấn Nghĩa</li>
-          <li>📍 Based: HCM city, Viet Nam</li>
-          <li>💻 Tech: Linux • Python • Playwright</li>
-          <li>🎧 Likes: music, tech, matcha, code</li>
-          <li>🎂 Birthday: 10/10/20XX</li>
+      <!-- Skills -->
+      <section id="skills" class="glass glow-border rounded-2xl p-6 space-y-4 tilt-card relative">
+        <h2 class="text-xl font-semibold neon-text">Skills</h2>
+        <div class="space-y-3">
+          <div>
+            <p class="text-sm text-slate-200 mb-1">Linux <span class="float-right text-violet-400">70%</span></p>
+            <div class="progress-bar"><div class="progress-fill" data-progress="70"></div></div>
+          </div>
+          <div>
+            <p class="text-sm text-slate-200 mb-1">Python <span class="float-right text-violet-400">90%</span></p>
+            <div class="progress-bar"><div class="progress-fill" data-progress="90"></div></div>
+          </div>
+          <div>
+            <p class="text-sm text-slate-200 mb-1">Playwright <span class="float-right text-violet-400">70%</span></p>
+            <div class="progress-bar"><div class="progress-fill" data-progress="70"></div></div>
+          </div>
+          <div>
+            <p class="text-sm text-slate-200 mb-1">HTML <span class="float-right text-violet-400">80%</span></p>
+            <div class="progress-bar"><div class="progress-fill" data-progress="80"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="glass glow-border rounded-2xl p-6 space-y-4 tilt-card relative">
+        <h2 class="text-xl font-semibold neon-text">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <div class="glass rounded-xl p-4 border border-slate-600 hover:border-violet-500 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                <span class="text-white text-sm font-bold">🤖</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-white">Tool Auto Post Facebook</h3>
+                <p class="text-xs text-slate-400">Python • Automation</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-300">Automated posting tool for Facebook groups/pages</p>
+            <div class="flex gap-2 mt-3">
+              <span class="px-2 py-1 text-xs bg-blue-500/20 text-blue-300 rounded">Python</span>
+              <span class="px-2 py-1 text-xs bg-indigo-500/20 text-indigo-300 rounded">Automation</span>
+            </div>
+          </div>
+
+          <div class="glass rounded-xl p-4 border border-slate-600 hover:border-violet-500 transition-colors">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
+                <span class="text-white text-sm font-bold">🎮</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-white">Flappy Bird Pygame</h3>
+                <p class="text-xs text-slate-400">Python • Pygame</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-300">A remake of the classic Flappy Bird game with Pygame</p>
+            <div class="flex gap-2 mt-3">
+              <span class="px-2 py-1 text-xs bg-yellow-500/20 text-yellow-300 rounded">Python</span>
+              <span class="px-2 py-1 text-xs bg-orange-500/20 text-orange-300 rounded">Pygame</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="glass glow-border rounded-2xl p-6 space-y-3 tilt-card relative">
+        <h2 class="text-xl font-semibold neon-text">Find me</h2>
+        <ul class="space-y-2 text-sm">
+          <li>🔗 <a href="https://discord.com/users/1203900795062460509" target="_blank" class="text-violet-400 hover:text-violet-200 underline">Discord</a></li>
+          <li>👥 <a href="https://discord.gg/vUEtDRGDu9" target="_blank" class="text-violet-400 hover:text-violet-200 underline">Discord Group</a></li>
+          <li>📘 <a href="https://www.facebook.com/tuannghia341824/" target="_blank" class="text-violet-400 hover:text-violet-200 underline">Facebook</a></li>
+          <li>🎵 <a href="https://www.tiktok.com/@pycoderx1" target="_blank" class="text-violet-400 hover:text-violet-200 underline">Tiktok</a></li>
+          <li>📸 <a href="https://www.instagram.com/nghiatuan.101011/" target="_blank" class="text-violet-400 hover:text-violet-200 underline">Instagram</a></li>
+          <li>📧 <a href="mailto:nghiatuan.101011@gmail.com" class="text-violet-400 hover:text-violet-200 underline">Email me</a></li>
         </ul>
-      </div>
+      </section>
 
-      <div
-        class="px-4 py-6 rounded-lg bg-gradient-to-br from-white to-violet-50 dark:from-slate-800 dark:to-slate-700 border border-violet-100 dark:border-slate-700">
-        <p class="text-sm text-slate-500 dark:text-slate-400">Quick bio</p>
-        <h3 class="mt-2 font-semibold">About me</h3>
-        <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">"💻 I'm a beginner programmer currently learning and
-          exploring different technologies. I have a special interest in Linux, automation tools, and building small
-          projects that make life easier. My goal is to grow step by step into a skilled developer while sharing
-          knowledge and connecting with others along the way."</p>
-
-        <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
-          <div class="p-3 bg-white dark:bg-slate-700 rounded-lg border border-slate-100 dark:border-slate-600 card-hover">
-            <div class="text-xs text-slate-400">Experience</div>
-            <div class="font-medium">2+month</div>
-          </div>
-          <div class="p-3 bg-white dark:bg-slate-700 rounded-lg border border-slate-100 dark:border-slate-600 card-hover">
-            <div class="text-xs text-slate-400">Availability</div>
-            <div class="font-medium">Freelance / Collab</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="mt-8">
-      <h3 class="text-lg font-semibold">Skills</h3>
-      <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div
-          class="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 text-center card-hover">
-          Linux</div>
-        <div
-          class="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 text-center card-hover">
-          Python</div>
-        <div
-          class="p-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 text-center card-hover">
-          Playwright</div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="mt-8">
-      <h3 class="text-lg font-semibold">Selected Projects</h3>
-      <div class="mt-4 space-y-3">
-        <article
-          class="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 card-hover">
-          <div class="flex items-start justify-between">
-            <div>
-              <h4 class="font-medium">Auto Post Facebook</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400">"A tool that automatically publishes posts, images,
-                or videos to your Facebook profile, pages, or groups on schedule." — using python.</p>
-            </div>
-            <div class="text-sm text-slate-400">2025</div>
-          </div>
-        </article>
-
-        <article
-          class="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 card-hover">
-          <div class="flex items-start justify-between">
-            <div>
-              <h4 class="font-medium">Flappy Bird game</h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400">"Flappy Bird: tap to fly, avoid the pipes, and chase
-                the high score." — Using Unity and Pygame.</p>
-            </div>
-            <div class="text-sm text-slate-400">2025</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="mt-8 mb-12">
-      <h3 class="text-lg font-semibold">Contact</h3>
-      <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Want to work together or ask something? Reach out.</p>
-
-      <div class="mt-4 grid md:grid-cols-2 gap-4">
-        <!-- Demo form + Formspree -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
-          class="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 card-hover"
-          onsubmit="alert('Form submitted! (or demo)')">
-          <label class="block text-sm">Name</label>
-          <input class="mt-1 w-full rounded-md border px-3 py-2 text-sm dark:bg-slate-700" placeholder="Your name"
-            required name="name">
-          <label class="block text-sm mt-3">Email</label>
-          <input type="email" class="mt-1 w-full rounded-md border px-3 py-2 text-sm dark:bg-slate-700"
-            placeholder="you@example.com" required name="email">
-          <label class="block text-sm mt-3">Message</label>
-          <textarea class="mt-1 w-full rounded-md border px-3 py-2 text-sm dark:bg-slate-700" rows="4"
-            placeholder="Hi..." required name="message"></textarea>
-          <div class="mt-3 flex gap-2">
-            <button type="submit" class="px-4 py-2 rounded bg-violet-600 text-white btn-anim">Send</button>
-            <a href="mailto:nghiatuan.101011@gmail.com"
-              class="px-4 py-2 rounded border border-slate-200 dark:border-slate-600 btn-anim">Email me</a>
-          </div>
-        </form>
-
-        <div
-          class="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 card-hover">
-          <h4 class="font-medium">Other ways</h4>
-          <ul class="mt-3 text-sm text-slate-600 dark:text-slate-400 space-y-2">
-            <li>Discord:
-              <a href="https://discord.com/users/1203900795062460509" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                https://discord.com/users/1203900795062460509
-              </a>
-            </li>
-            <li>My Discord Group:
-              <a href="https://discord.gg/pcWwSwk8cg" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                https://discord.gg/pcWwSwk8cg
-              </a>
-            </li>
-            <li>GitHub:
-              <a href="https://github.com/Annettiii" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                https://github.com/Annettiii
-              </a>
-            </li>
-            <li>Facebook 1:
-              <a href="https://www.facebook.com/tng.nxg/" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                https://www.facebook.com/tng.nxg/
-              </a>
-            </li>
-            <li>Facebook 2:
-              <a href="https://www.facebook.com/tng.nxg09/" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                https://www.facebook.com/tng.nxg09/
-              </a>
-            </li>
-            <li>Instagram:
-              <a href="https://www.instagram.com/nghiatuan.101011/" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                @nghiatuan.101011
-              </a>
-            </li>
-            <li>Telegram:
-              <a href="https://t.me/@sirocandy12" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                https://t.me/@sirocandy12
-              </a>
-            </li>
-            <li>TikTok:
-              <a href="https://www.tiktok.com/@pycoderx1" target="_blank"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                @pycoderx1
-              </a>
-            </li>
-            <li>Email:
-              <a href="mailto:nghiatuan.101011@gmail.com"
-                class="font-medium text-violet-600 hover:text-violet-800 underline">
-                nghiatuan.101011@gmail.com
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer class="text-center text-sm text-slate-400 dark:text-slate-500 py-6">© <span id="year"></span> Matcha — Built
-      with simple HTML + Tailwind</footer>
-  </main>
+      <footer class="text-center text-xs text-slate-400 py-4">
+        © <span id="year"></span> sirocandyy1337 — Made with 💜
+      </footer>
+    </main>
+  </div>
 
   <script>
-    // Fill footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Dark mode toggle
-    const html = document.documentElement;
-    const toggleBtn = document.getElementById('darkToggle');
-    const thumb = document.getElementById('darkThumb');
-
-    if (localStorage.theme === 'dark') {
-      html.classList.add('dark');
-      thumb.classList.add('translate-x-6');
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      html.classList.toggle('dark');
-      thumb.classList.toggle('translate-x-6');
-
-      if (html.classList.contains('dark')) {
-        localStorage.theme = 'dark';
-      } else {
-        localStorage.theme = 'light';
-      }
+    // Animate skill bars
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".progress-fill").forEach(bar => {
+        const percent = bar.getAttribute("data-progress");
+        setTimeout(() => {
+          bar.style.width = percent + "%";
+        }, 200);
+      });
     });
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    // Enhanced 3D tilt effect
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / centerY * -15;
+        const rotateY = (x - centerX) / centerX * 15;
+        
+        card.style.setProperty('--tilt-x', `${rotateX}deg`);
+        card.style.setProperty('--tilt-y', `${rotateY}deg`);
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+      });
+    });
+
+    // Smooth scrolling for navigation links + active highlight
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   </script>
-</body>
-
-</html>
+</
