@@ -75,6 +75,7 @@
             font-size: 3rem;
             margin-bottom: 0.5rem;
             color: #fff;
+            transform: translateX(-170px);
         }
 
         .hero .greeting {
@@ -107,26 +108,6 @@
             transform: scale(1.02);
         }
 
-        .visitor-counter {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(17, 17, 17, 0.9);
-            color: #fff;
-            padding: 10px 15px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            border: 1px solid #333;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            z-index: 999;
-        }
-
-        .visitor-counter .count {
-            color: #4a9eff;
-            font-weight: bold;
-        }
-
         .github-stats {
             text-align: center;
             margin-top: 2rem;
@@ -150,7 +131,7 @@
 
         .about h2 {
             font-size: 2.5rem;
-            text-align: center;
+            text-align: left;
             margin-bottom: 3rem;
             color: #fff;
         }
@@ -236,6 +217,7 @@
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
+                transform: translateX(-20px);
             }
             
             .hero .greeting {
@@ -263,6 +245,10 @@
             
             .hero {
                 padding: 2rem 0;
+            }
+            
+            .hero h1 {
+                transform: translateX(-10px);
             }
         }
     </style>
@@ -311,22 +297,8 @@
                     </ul>
                 </div>
 
-                <div class="contact">
-                    <h3>Where to find me? #</h3>
-                    <p>You can contact me using any services below:</p>
-                    <ul>
-                        <li>Mail: sirocandy (at) disroot.org</li>
-                        <li>Discord: <strong>sirocandy1337</strong></li>
-                    </ul>
-                    <p>I'm also available on some platforms:</p>
-                    <ul>
-                        <li>GitHub: to host my (personal) projects</li>
-                        <li>AniList: to track my anime/manga list</li>
-                    </ul>
-                </div>
-
                 <div class="github-stats">
-                    <img src="https://camo.githubusercontent.com/b2fcbd354fb8082226c9e5577edc61309a2189eb5cb87a6d289d4d0c7283f380/68747470733a2f2f636f756e7465722e73656b752e73752f636d6f653f6e616d653d466c6f617454656368267468656d653d6762" alt="GitHub Stats" />
+                    <img src="https://camo.githubusercontent.com/3af76035f81ba41968bcdeb8ef43773e4d6bd404ec703a0df5838dd25f8a0323/68747470733a2f2f636f756e742e6765746c6f6c692e636f6d2f40456c61696e6136393f6e616d653d456c61696e61363950726f66696c65267468656d653d626f6f72752d6c6577642670616464696e673d37266f66667365743d3026616c69676e3d63656e746572267363616c653d312e3726706978656c617465643d31266461726b6d6f64653d6175746f" alt="GitHub Stats" />
                 </div>
             </div>
         </section>
@@ -348,47 +320,7 @@
         </section>
     </main>
 
-    <!-- Visitor Counter -->
-    <div class="visitor-counter">
-        👁️ Visitors: <span class="count" id="visitor-count">Loading...</span>
-    </div>
-
     <script>
-        // Visitor counter functionality
-        function updateVisitorCount() {
-            // Get current count from memory (since we can't use localStorage)
-            if (!window.visitorCount) {
-                // Simulate a random starting count for demo
-                window.visitorCount = Math.floor(Math.random() * 1000) + 500;
-            }
-            
-            // Increment count
-            window.visitorCount++;
-            
-            // Update display with animation
-            const countElement = document.getElementById('visitor-count');
-            countElement.style.transform = 'scale(1.2)';
-            countElement.textContent = window.visitorCount.toLocaleString();
-            
-            setTimeout(() => {
-                countElement.style.transform = 'scale(1)';
-            }, 300);
-        }
-
-        // Array of different background gradients for the hero image (kept for reference)
-        const heroBackgrounds = [
-            'linear-gradient(135deg, #4a9eff 0%, #ff6b35 50%, #ffa500 100%)',
-            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-            'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-            'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-            'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
-        ];
-        
-        let currentBgIndex = 0;
-
         function showSection(section) {
             // Hide all sections
             const sections = ['home-section', 'about-section', 'posts-section', 'viet-section'];
@@ -407,23 +339,12 @@
             const links = document.querySelectorAll('.nav-links a');
             links.forEach(link => link.style.color = '#ccc');
             event.target.style.color = '#fff';
-            
-            // Update visitor count when navigating
-            updateVisitorCount();
         }
 
-        // Set home as active on load and initialize visitor counter
+        // Set home as active on load
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.nav-links a[href="#home"]').style.color = '#fff';
-            updateVisitorCount();
         });
-
-        // Update visitor count every 30 seconds to simulate activity
-        setInterval(function() {
-            if (Math.random() > 0.7) { // 30% chance every 30 seconds
-                updateVisitorCount();
-            }
-        }, 30000);
     </script>
 </body>
-</html>
+</html>s
