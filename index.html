@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sirocandy</title>
+    <title>k4Aru_15</title>
     <style>
         * {
             margin: 0;
@@ -136,62 +136,139 @@
             color: #fff;
         }
 
-        .intro h3 {
+        /* Info Card Styles */
+        .info-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(74, 158, 255, 0.1);
+            border: 1px solid #333;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-card h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #fff;
+            color: #4a9eff;
+            text-align: center;
         }
 
-        .intro ul {
-            list-style: none;
-            padding-left: 0;
+        .info-grid {
+            display: grid;
+            gap: 1rem;
         }
 
-        .intro li {
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            position: relative;
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
         }
 
-        .intro li::before {
-            content: '•';
+        .info-label {
             color: #4a9eff;
             font-weight: bold;
-            position: absolute;
-            left: 0;
+            min-width: 100px;
         }
 
-        .contact {
+        .info-value {
+            color: #e0e0e0;
+        }
+
+        /* Detailed Info Styles */
+        .detailed-info {
             margin-top: 3rem;
         }
 
-        .contact h3 {
+        .detailed-info h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: #fff;
         }
 
-        .contact p {
-            margin-bottom: 1rem;
-        }
-
-        .contact ul {
+        .detailed-info ul {
             list-style: none;
             padding-left: 0;
         }
 
-        .contact li {
-            margin-bottom: 0.8rem;
+        .detailed-info li {
+            margin-bottom: 1rem;
             padding-left: 1rem;
             position: relative;
         }
 
-        .contact li::before {
+        .detailed-info li::before {
             content: '•';
             color: #4a9eff;
             font-weight: bold;
             position: absolute;
             left: 0;
+        }
+
+        /* Contact Section Styles */
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-intro p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.2);
+            border-color: #4a9eff;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4a9eff;
+        }
+
+        .contact-card p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .contact-link {
+            display: inline-block;
+            color: #4a9eff;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #4a9eff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .contact-link:hover {
+            background: #4a9eff;
+            color: #000;
         }
 
         .hidden {
@@ -235,6 +312,19 @@
             .container {
                 padding: 0 15px;
             }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+            }
+
+            .info-label {
+                min-width: 80px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -250,17 +340,53 @@
             .hero h1 {
                 transform: translateX(-10px);
             }
+
+            .about h2 {
+                font-size: 2rem;
+            }
+
+            .info-card h3, .detailed-info h3 {
+                font-size: 1.5rem;
+            }
         }
+        <style>
+   .detailed-info a {
+    color: #00e6ff; /* xanh aqua sáng */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.detailed-info a:hover {
+    color: #ffcc00; /* vàng neon khi hover */
+    text-decoration: underline;
+    text-shadow: 0 0 8px #ffcc00; /* tạo glow nhẹ */
+}
+.detailed-info a {
+    color: #00ffff; /* màu cyan sáng */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.detailed-info a:hover {
+    color: #ff66cc; /* hồng neon khi hover */
+    text-decoration: underline;
+}
+
+    }
+</style>
+
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">sirocandy</div>
+            <div class="logo">k4Aru_15</div>
             <ul class="nav-links">
                 <li><a href="#home" onclick="showSection('home')">Home</a></li>
                 <li><a href="#about" onclick="showSection('about')">About</a></li>
-                <li><a href="#posts" onclick="showSection('posts')">Posts</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
                 <li><a href="#viet" onclick="showSection('viet')">Viet</a></li>
             </ul>
         </nav>
@@ -271,7 +397,7 @@
         <section id="home-section" class="hero">
             <div class="container">
                 <h1>Welcome!</h1>
-                <p class="greeting">Hi, I'm <strong>sirocandy</strong>. Welcome to my personal site, where I share my thoughts, ideas, and a bit about myself :D</p>
+                <p class="greeting">Hi, I'm <strong>k4Aru_15</strong>. Welcome to my personal site, where I share my thoughts, ideas, and a bit about myself :D</p>
                 
                 <div class="hero-image">
                     <img src="https://i.pinimg.com/originals/ff/34/3a/ff343aa8819c2573ad3409baf4af5e3e.gif" alt="Your photo">
@@ -284,16 +410,48 @@
             <div class="container">
                 <h2>About me</h2>
                 
-                <div class="intro">
-                    <h3>Introduction</h3>
+                <!-- Basic Information Card -->
+                <div class="info-card">
+                    <h3>Basic Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Name:</span>
+                            <span class="info-value">k4Aru_15</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Status:</span>
+                            <span class="info-value">Junior High School Student</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Interests:</span>
+                            <span class="info-value">Programming, Music, Anime, Tech , Football </span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Languages:</span>
+                            <span class="info-value">Vietnamese (Native), English,</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Personality:</span>
+                            <span class="info-value">Tech Paranoid, Digital Minimalist, Otaku</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Information -->
+                <div class="detailed-info">
+                    <h3>More About Me</h3>
                     <ul>
-                        <li>Hi! My name is <strong>sirocandy</strong></li> 
-                        <li>I'm a junior high school student, technically a tech (or newborn) paranoid/digital minimalist, otaku(?)</li>
-                        <li>I love wandering around the internet, progamming, listening to music, tinkering tech stuff, anime, manga etc.</li>
-                        <li>My mother tongue is Vietnamese, but I can also use English. I'm learning Japanese too :D</li>
-                        <li>I'm not play games much to video games anymor, but before, I played lots of different games. I have played video games since first time I used a computer (5yo). The first game I played was Minecraft. It's still one of my favorite games.</li>
-                        <li>I listen to multiple genres of music, but mostly Electronic, Rap and R&B .</li>
-                        <li>"I'm a pretty introverted and boring person, so please understand when you text me.".</li>
+                        <li>My real name is <strong>Hoàng Tuấn Nghĩa</strong> and I have a lot of nicknames that people call me like <strong>matchalatte., sirocandy, k4Aru_15</strong>.</li>
+                        <li>I love wandering around the internet, programming, listening to music, tinkering with tech stuff, anime, manga, and more.</li>
+                        <li>I'm not playing video games as much anymore, but I used to play lots of different games. I've been gaming since I first used a computer at 5 years old. The first game I played was Minecraft, and it's still one of my favorites.</li>
+                        <li>I listen to multiple genres of music, but mostly Indie/Alternative Pop/Rock. Some of my favorite artists are  
+   <a href="https://www.youtube.com/c/Ng%E1%BB%8Dtband" target="_blank">Ngọt Band</a>, 
+    <a href="https://www.youtube.com/channel/UCoIioUVO1BW8e0PqHDNiJOg" target="_blank">Thắng</a>, 
+    <a href="https://www.youtube.com/@justinbieber" target="_blank">Justin Bieber</a>, 
+    <a href="https://www.youtube.com/@EdSheeran" target="_blank">Ed Sheeran</a>, and 
+    <a href="https://www.youtube.com/@ameeofficial3930" target="_blank">Amee</a>.</li>
+                        <li>I'm a pretty introverted and quiet person, so please understand when you text me.</li>
+
                     </ul>
                 </div>
 
@@ -303,11 +461,40 @@
             </div>
         </section>
 
-        <!-- POSTS SECTION -->
-        <section id="posts-section" class="about hidden">
+        <!-- CONTACT SECTION -->
+        <section id="contact-section" class="about hidden">
             <div class="container">
-                <h2>Posts</h2>
-                <p style="text-align: center; font-size: 1.2rem; margin-top: 2rem;">Coming soon...</p>
+                <h2>Contact</h2>
+                
+                <div class="contact-intro">
+                    <p>Thanks for visiting my site! I'm always open to connecting with people who share similar interests. Whether you want to discuss tech, anime, music, or just chat, feel free to reach out through any of the platforms below. I might take some time to respond since I'm introverted, but I'll definitely get back to you!</p>
+                </div>
+
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <h3>GitHub</h3>
+                        <p>Check out my projects and code</p>
+                        <a href="https://github.com/yourusername" class="contact-link" target="_blank">Visit Profile</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Discord</h3>
+                        <p>Chat with me on Discord</p>
+                        <a href="#" class="contact-link">k4aru_15</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>Send me an email</p>
+                        <a href="mailto:your.email@example.com" class="contact-link">Send Email</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Reddit</h3>
+                        <p>Find me on Reddit</p>
+                        <a href="https://reddit.com/u/yourusername" class="contact-link" target="_blank">u/yourusername</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -323,7 +510,7 @@
     <script>
         function showSection(section) {
             // Hide all sections
-            const sections = ['home-section', 'about-section', 'posts-section', 'viet-section'];
+            const sections = ['home-section', 'about-section', 'contact-section', 'viet-section'];
             sections.forEach(id => {
                 const element = document.getElementById(id);
                 element.classList.add('hidden');
@@ -348,4 +535,3 @@
     </script>
 </body>
 </html>
-
