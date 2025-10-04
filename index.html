@@ -1,558 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>k4Aru_15</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>k4Aru_15</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #000;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #090014, #1a0033, #001833, #330033);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        header {
-            background: #111;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    header {
+      background: rgba(10, 10, 30, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-        }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00e6ff;
+      text-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
+      letter-spacing: 1px;
+    }
 
-        .nav-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
 
-        .nav-links a:hover {
-            color: #fff;
-        }
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-        main {
-            padding-top: 80px;
-        }
+    .nav-links a:hover {
+      color: #ff66cc;
+      text-shadow: 0 0 8px #ff66cc;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            background: #000;
-        }
+    main {
+      padding-top: 90px;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-            transform: translateX(-170px);
-        }
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
 
-        .hero .greeting {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 0 0 10px #00ffff, 0 0 25px #ff33cc;
+      animation: glowPulse 4s ease-in-out infinite alternate;
+    }
 
-        .hero-image {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            margin: 0 auto;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
+    @keyframes glowPulse {
+      from {
+        text-shadow: 0 0 10px #00ffff, 0 0 25px #ff33cc;
+      }
+      to {
+        text-shadow: 0 0 25px #ff33cc, 0 0 45px #00ffff;
+      }
+    }
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+    .greeting {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #cfcfcf;
+      text-shadow: 0 0 5px rgba(255,255,255,0.2);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        .hero-image:hover {
-            transform: scale(1.02);
-        }
+    .hero-image {
+      width: 100%;
+      max-width: 600px;
+      height: 320px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      transition: 0.4s ease;
+    }
 
-        .github-stats {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-        }
+    .hero-image:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 40px rgba(255, 102, 204, 0.4);
+    }
 
-        .github-stats img {
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .github-stats img:hover {
-            transform: scale(1.05);
-        }
+    .about {
+      padding: 4rem 0;
+    }
 
-        .about {
-            padding: 4rem 0;
-            background: #000;
-        }
+    .about h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 10px #00e6ff, 0 0 25px #ff33cc;
+      margin-bottom: 3rem;
+    }
 
-        .about h2 {
-            font-size: 2.5rem;
-            text-align: left;
-            margin-bottom: 3rem;
-            color: #fff;
-        }
+    .info-card, .contact-card {
+      background: rgba(20, 20, 40, 0.7);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(0,255,255,0.2);
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      transition: 0.4s ease;
+    }
 
-        /* Info Card Styles */
-        .info-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 8px 32px rgba(74, 158, 255, 0.1);
-            border: 1px solid #333;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .info-card:hover, .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 40px rgba(255,102,204,0.3);
+      border-color: #ff66cc;
+    }
 
-        .info-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #4a9eff;
-            text-align: center;
-        }
+    .info-card h3, .contact-card h3 {
+      text-align: center;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+      margin-bottom: 1rem;
+    }
 
-        .info-grid {
-            display: grid;
-            gap: 1rem;
-        }
+    .info-item {
+      margin: 0.8rem 0;
+    }
 
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-        }
+    .info-label {
+      color: #ff66cc;
+      font-weight: bold;
+    }
 
-        .info-label {
-            color: #4a9eff;
-            font-weight: bold;
-            min-width: 100px;
-        }
+    .detailed-info ul {
+      list-style: none;
+      padding-left: 0;
+    }
 
-        .info-value {
-            color: #e0e0e0;
-        }
+    .detailed-info li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1rem;
+    }
 
-        /* Detailed Info Styles */
-        .detailed-info {
-            margin-top: 3rem;
-        }
+    .detailed-info li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
 
-        .detailed-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #fff;
-        }
+    .detailed-info a {
+      color: #00ffff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-        .detailed-info ul {
-            list-style: none;
-            padding-left: 0;
-        }
+    .detailed-info a:hover {
+      color: #ff66cc;
+      text-shadow: 0 0 10px #ff66cc;
+    }
 
-        .detailed-info li {
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            position: relative;
-        }
+    .contact-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.8rem;
+      border: 1px solid #00ffff;
+      border-radius: 8px;
+      color: #00ffff;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: bold;
+      text-shadow: 0 0 6px #00ffff;
+    }
 
-        .detailed-info li::before {
-            content: '•';
-            color: #4a9eff;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
+    .contact-link:hover {
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 25px #00ffff;
+    }
 
-        /* Contact Section Styles */
-        .contact-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .hidden { display: none; }
 
-        .contact-intro p {
-            font-size: 1.1rem;
-            color: #ccc;
-            line-height: 1.8;
-        }
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
 
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .contact-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
+    html { scroll-behavior: smooth; }
 
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.2);
-            border-color: #4a9eff;
-        }
-
-        .contact-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #4a9eff;
-        }
-
-        .contact-card p {
-            margin-bottom: 1rem;
-            color: #ccc;
-        }
-
-        .contact-link {
-            display: inline-block;
-            color: #4a9eff;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid #4a9eff;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .contact-link:hover {
-            background: #4a9eff;
-            color: #000;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* Animation for page transitions */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Enhanced mobile responsiveness */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-                transform: translateX(-20px);
-            }
-            
-            .hero .greeting {
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero-image {
-                height: 250px;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .contact-methods {
-                grid-template-columns: 1fr;
-            }
-
-            .info-card {
-                padding: 1.5rem;
-            }
-
-            .info-label {
-                min-width: 80px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .hero {
-                padding: 2rem 0;
-            }
-            
-            .hero h1 {
-                transform: translateX(-10px);
-            }
-
-            .about h2 {
-                font-size: 2rem;
-            }
-
-            .info-card h3, .detailed-info h3 {
-                font-size: 1.5rem;
-            }
-        }
-        <style>
-   .detailed-info a {
-    color: #00e6ff; /* xanh aqua sáng */
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.detailed-info a:hover {
-    color: #ffcc00; /* vàng neon khi hover */
-    text-decoration: underline;
-    text-shadow: 0 0 8px #ffcc00; /* tạo glow nhẹ */
-}
-.detailed-info a {
-    color: #00ffff; /* màu cyan sáng */
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.detailed-info a:hover {
-    color: #ff66cc; /* hồng neon khi hover */
-    text-decoration: underline;
-}
-.avatar img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid #4a9eff;
-    margin-bottom: 1rem;
-}
-
-
-
-    
-</style>
-
-    </style>
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .container { padding: 0 15px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">k4Aru_15</div>
-            <ul class="nav-links">
-                <li><a href="#home" onclick="showSection('home')">Home</a></li>
-                <li><a href="#about" onclick="showSection('about')">About</a></li>
-                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
-                <li><a href="#viet" onclick="showSection('viet')">Viet</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav class="container">
+      <div class="logo">k4Aru_15</div>
+      <ul class="nav-links">
+        <li><a href="#home" onclick="showSection('home')">Home</a></li>
+        <li><a href="#about" onclick="showSection('about')">About</a></li>
+        <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <!-- HOME SECTION -->
-        <section id="home-section" class="hero">
-            <div class="container">
-                <h1>Welcome!</h1>
-                <p class="greeting">Hi, I'm <strong>k4Aru_15</strong>. Welcome to my personal site, where I share my thoughts, ideas, and a bit about myself :D</p>
-                
-                <div class="hero-image">
-                    <img src="https://i.pinimg.com/originals/ff/34/3a/ff343aa8819c2573ad3409baf4af5e3e.gif" alt="Your photo">
-                </div>
-            </div>
+  <main>
+    <section id="home-section" class="hero">
+      <div class="container">
+        <h1>Welcome!</h1>
+        <p class="greeting">Hi, I'm <strong>k4Aru_15</strong>. Welcome to my personal site, where I share my thoughts, ideas, and a bit about myself :D</p>
+        <div class="hero-image">
+          <img src="https://i.pinimg.com/originals/ff/34/3a/ff343aa8819c2573ad3409baf4af5e3e.gif" alt="Your photo">
+        </div>
+      </div>
+    </section>
 
+    <section id="about-section" class="about hidden">
+      <div class="container">
+        <h2>About me</h2>
+        <div class="info-card">
+          <h3>Basic Information</h3>
+          <div class="info-item"><span class="info-label">Name:</span> k4Aru_15</div>
+          <div class="info-item"><span class="info-label">Status:</span> Junior High School Student</div>
+          <div class="info-item"><span class="info-label">Interests:</span> Programming, Music, Anime, Tech, Football, Watching F1</div>
+          <div class="info-item"><span class="info-label">Languages:</span> Vietnamese, English</div>
+          <div class="info-item"><span class="info-label">Personality:</span> Tech Paranoid, Digital Minimalist, Otaku</div>
+        </div>
 
-        </section>
+        <div class="detailed-info">
+          <h3>More About Me</h3>
+          <ul>
+            <li>My real name is <strong>Hoàng Tuấn Nghĩa</strong> (aka matchalatte., sirocandy, k4Aru_15).</li>
+            <li>I love programming, listening to music, tinkering with tech, anime, and manga.</li>
+            <li>I used to play a lot of games — Minecraft was my first and still my favorite.</li>
+            <li>I listen to Indie/Alternative Pop/Rock. Favorites:
+              <a href="https://www.youtube.com/c/Ng%E1%BB%8Dtband" target="_blank">Ngọt Band</a>, 
+              <a href="https://www.youtube.com/@justinbieber" target="_blank">Justin Bieber</a>, 
+              <a href="https://www.youtube.com/@EdSheeran" target="_blank">Ed Sheeran</a>.
+            </li>
+            <li>Favorite F1 drivers: <a href="https://en.wikipedia.org/wiki/Max_Verstappen" target="_blank">Max Verstappen</a>, <a href="https://en.wikipedia.org/wiki/Sebastian_Vettel" target="_blank">Sebastian Vettel</a>.</li>
+            <li>Favorite football players: <a href="https://en.wikipedia.org/wiki/Lionel_Messi" target="_blank">Lionel Messi</a>, <a href="https://en.wikipedia.org/wiki/Javier_Hern%C3%A1ndez" target="_blank">Chicharito</a>.</li>
+            <li>I'm introverted, so I may reply late — thanks for understanding!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <!-- ABOUT SECTION -->
-        <section id="about-section" class="about hidden">
-            <div class="container">
-                <h2>About me</h2>
-                
-                <!-- Basic Information Card -->
-                <div class="info-card">
-                    <h3>Basic Information</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="info-label">Name:</span>
-                            <span class="info-value">k4Aru_15</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Status:</span>
-                            <span class="info-value">Junior High School Student</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Interests:</span>
-                            <span class="info-value">Programming, Music, Anime, Tech , Football, Watching F1 </span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Languages:</span>
-                            <span class="info-value">Vietnamese (Native), English,</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Personality:</span>
-                            <span class="info-value">Tech Paranoid, Digital Minimalist, Otaku</span>
-                        </div>
-                    </div>
-                </div>
+    <section id="contact-section" class="about hidden">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-methods">
+          <div class="contact-card">
+            <h3>GitHub</h3>
+            <p>Check out my projects</p>
+            <a href="https://github.com/yourusername" class="contact-link" target="_blank">Visit Profile</a>
+          </div>
+          <div class="contact-card">
+            <h3>Discord</h3>
+            <p>Chat with me</p>
+            <a href="https://discordapp.com/users/1203900795062460509" class="contact-link">k4aru_15</a>
+          </div>
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p>Send me an email</p>
+            <a href="mailto:nghiatuan.101011@gmail.com" class="contact-link">Send Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                <!-- Detailed Information -->
-                <div class="detailed-info">
-                    <h3>More About Me</h3>
-                    <ul>
-                        <li>My real name is <strong>Hoàng Tuấn Nghĩa</strong> and I have a lot of nicknames that people call me like <strong>matchalatte., sirocandy, k4Aru_15</strong>.</li>
-                        <li>I love wandering around the internet, programming, listening to music, tinkering with tech stuff, anime, manga, and more.</li>
-                        <li>I'm not playing video games as much anymore, but I used to play lots of different games. I've been gaming since I first used a computer at 5 years old. The first game I played was Minecraft, and it's still one of my favorites.</li>
-                        <li>I listen to multiple genres of music, but mostly Indie/Alternative Pop/Rock. Some of my favorite artists are  
-   <a href="https://www.youtube.com/c/Ng%E1%BB%8Dtband" target="_blank">Ngọt Band</a>, 
-    <a href="https://www.youtube.com/channel/UCoIioUVO1BW8e0PqHDNiJOg" target="_blank">Thắng</a>, 
-    <a href="https://www.youtube.com/@justinbieber" target="_blank">Justin Bieber</a>, 
-    <a href="https://www.youtube.com/@EdSheeran" target="_blank">Ed Sheeran</a>, and 
-    <a href="https://www.youtube.com/@ameeofficial3930" target="_blank">Amee</a>.</li>
-                        <li>I also enjoy watching <strong>Formula 1</strong> and football.  
-    My favorite drivers are    
-    <a href="https://en.wikipedia.org/wiki/Max_Verstappen" target="_blank">Max Verstappen</a>, and  
-    <a href="https://en.wikipedia.org/wiki/Sebastian_Vettel" target="_blank">Sebastian Vettel</a>.  
-    Some of my favorite football players are  
-    <a href="https://en.wikipedia.org/wiki/Lionel_Messi" target="_blank">Lionel Messi</a>,   
-    <a href="https://en.wikipedia.org/wiki/Javier_Hern%C3%A1ndez" target="_blank">Javier_Hernández(Chicharito)</a>.
-</li>
+  <script>
+    function showSection(section) {
+      const sections = ['home-section', 'about-section', 'contact-section'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('fade-in');
+      });
+      const selected = document.getElementById(section + '-section');
+      selected.classList.remove('hidden');
+      selected.classList.add('fade-in');
 
-                        <li>I'm a pretty introverted and quiet person, so please understand when you text me.</li>
+      const links = document.querySelectorAll('.nav-links a');
+      links.forEach(link => link.style.color = '#ccc');
+      event.target.style.color = '#fff';
+    }
 
-                    </ul>
-                </div>
-
-                <div class="github-stats">
-                    <img src="https://camo.githubusercontent.com/3af76035f81ba41968bcdeb8ef43773e4d6bd404ec703a0df5838dd25f8a0323/68747470733a2f2f636f756e742e6765746c6f6c692e636f6d2f40456c61696e6136393f6e616d653d456c61696e61363950726f66696c65267468656d653d626f6f72752d6c6577642670616464696e673d37266f66667365743d3026616c69676e3d63656e746572267363616c653d312e3726706978656c617465643d31266461726b6d6f64653d6175746f" alt="GitHub Stats" />
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact-section" class="about hidden">
-            <div class="container">
-                <h2>Contact</h2>
-                
-                <div class="contact-intro">
-                    <p>Thanks for visiting my site! I'm always open to connecting with people who share similar interests. Whether you want to discuss tech, anime, music, or just chat, feel free to reach out through any of the platforms below. I might take some time to respond since I'm introverted, but I'll definitely get back to you!</p>
-                </div>
-
-                <div class="contact-methods">
-                    <div class="contact-card">
-                        <h3>GitHub</h3>
-                        <p>Check out my projects and code</p>
-                        <a href="https://github.com/yourusername" class="contact-link" target="_blank">Visit Profile</a>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Discord</h3>
-                        <p>Chat with me on Discord</p>
-                        <a href="https://discordapp.com/users/1203900795062460509" class="contact-link">k4aru_15</a>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Email</h3>
-                        <p>Send me an email</p>
-                        <a href="mailto:nghiatuan.101011@gmail.com" class="contact-link">Send Email</a>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Reddit</h3>
-                        <p>Find me on Reddit</p>
-                        <a href="https://reddit.com/u/yourusername" class="contact-link" target="_blank">u/yourusername</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VIET SECTION -->
-        <section id="viet-section" class="about hidden">
-            <div class="container">
-                <h2>Viet</h2>
-                <p style="text-align: center; font-size: 1.2rem; margin-top: 2rem;">Vietnamese content coming soon...</p>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        function showSection(section) {
-            // Hide all sections
-            const sections = ['home-section', 'about-section', 'contact-section', 'viet-section'];
-            sections.forEach(id => {
-                const element = document.getElementById(id);
-                element.classList.add('hidden');
-                element.classList.remove('fade-in');
-            });
-            
-            // Show selected section with animation
-            const selectedSection = document.getElementById(section + '-section');
-            selectedSection.classList.remove('hidden');
-            selectedSection.classList.add('fade-in');
-            
-            // Update navigation active state
-            const links = document.querySelectorAll('.nav-links a');
-            links.forEach(link => link.style.color = '#ccc');
-            event.target.style.color = '#fff';
-        }
-
-        // Set home as active on load
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.nav-links a[href="#home"]').style.color = '#fff';
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.nav-links a[href="#home"]').style.color = '#fff';
+    });
+  </script>
 </body>
 </html>
-
